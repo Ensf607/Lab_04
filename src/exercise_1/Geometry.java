@@ -1,6 +1,8 @@
 package exercise_1;
 
+import java.text.NumberFormat;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.TreeSet;
 
 public class Geometry {
@@ -41,17 +43,28 @@ public class Geometry {
          System.out.println("\nShowing information about objects added to the list:");
          demo.showAll();
          
-//         System.out.println("\nShowing area, perimeter, and volume of objects in the list:");
-//         
-//         Iterator <Shape> it = demo.shapes.iterator();
-//         while(it.hasNext()){
-//        	demo.calculator(it.next());
+         System.out.println("\nShowing area, perimeter, and volume of objects in the list:");
+         
+         Iterator <Shape> it = demo.shapes.iterator();
+         while(it.hasNext()){
+        	demo.calculator(it.next());}
          }
          
          
 
 	
 
+
+	private void calculator(Shape next) {
+		
+		 NumberFormat nf = NumberFormat.getInstance(new Locale("en", "US"));
+		 nf.setMaximumFractionDigits(2);
+		System.out.println("\nShape: "+next.getName()+"\nArea= "+nf.format(next.area())
+		+"\nPerimeter= "+nf.format(next.perimeter()));
+		if(next.volume()>0) {
+			System.out.print("Volume= "+nf.format(next.volume())+"\n");
+		}
+	}
 
 	private void showAll()  {
 		Iterator<Shape> it =shapes.iterator();
