@@ -1,4 +1,4 @@
-package exercise_1;
+package exercise_1_2;
 
 abstract class Shape implements Comparable<Shape>{
 	protected Point origin;

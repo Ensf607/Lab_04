@@ -1,4 +1,4 @@
-package exercise_1;
+package exercise_1_2;
 
 
 class Circle extends Shape{

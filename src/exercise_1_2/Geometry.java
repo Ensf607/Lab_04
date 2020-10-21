@@ -1,4 +1,4 @@
-package exercise_1;
+package exercise_1_2;
 
 import java.text.NumberFormat;
 import java.util.Iterator;
@@ -60,10 +60,8 @@ public class Geometry {
 		 NumberFormat nf = NumberFormat.getInstance(new Locale("en", "US"));
 		 nf.setMaximumFractionDigits(2);
 		System.out.println("\nShape: "+next.getName()+"\nArea= "+nf.format(next.area())
-		+"\nPerimeter= "+nf.format(next.perimeter()));
-		if(next.volume()>0) {
-			System.out.print("Volume= "+nf.format(next.volume())+"\n");
-		}
+		+"\nPerimeter= "+nf.format(next.perimeter())+"\nVolume= "+nf.format(next.volume()));
+		
 	}
 
 	private void showAll()  {
