@@ -11,7 +11,7 @@ protected void makeMove() {
 	helper();
 	}
 
-public void helper() {
+protected void helper() {
 	int row=random.discrete(0,2);
 	int col=random.discrete(0,2);
 
