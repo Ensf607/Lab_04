@@ -74,7 +74,7 @@ public class Geometry {
 
 
 	private void add(Shape shape) {
-		// TODO Auto-generated method stub
+
 		shapes.add(shape);
 	}
 

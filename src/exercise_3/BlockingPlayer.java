@@ -7,7 +7,7 @@ public class BlockingPlayer extends RandomPlayer{
 		
 	}
 protected void makeMove() {
-	if(testForBlocking()==false) 
+	if(testForBlocking(0,0)==false) 
 	helper();
 	}
 
@@ -22,13 +22,13 @@ if (board.getMark(row, col)==' ' )
 			helper();
 }
 
-protected boolean testForBlocking() {
+protected boolean testForBlocking(int row, int col) {
 
 	// check in the row direction
-	for (int row = 0; row < 3; row++) {
+	for ( row = 0; row < 3; row++) {
 		int row_result_opponent = 0;
 		int row_result_player = 0;
-		for (int col = 0; col < 3; col++) {
+		for (col = 0; col < 3; col++) {
 			if (board.getTheBoard()[row][col] == opponent.mark)
 				row_result_opponent++;
 			else if (board.getTheBoard()[row][col] == mark) {
@@ -49,10 +49,10 @@ protected boolean testForBlocking() {
 	}
 
 	// check in the column direction
-	for (int col = 0; col < 3; col++) {
+	for ( col = 0; col < 3; col++) {
 		int col_result_opponenet = 0;
 		int col_result_player = 0;
-		for (int row = 0; row < 3; row++) {
+		for ( row = 0; row < 3; row++) {
 			if (board.getTheBoard()[row][col] == opponent.mark)
 				col_result_opponenet++;
 			else if (board.getTheBoard()[row][col] == mark)
@@ -74,7 +74,7 @@ protected boolean testForBlocking() {
 
 	int diag1Result_opponenet = 0;
 	int diag1Result_player = 0;
-	for (int row = 0; row < 3; row++) {
+	for (row = 0; row < 3; row++) {
 		if (board.getTheBoard()[row][row] == opponent.mark)
 			diag1Result_opponenet++;
 		else if (board.getTheBoard()[row][row] ==mark)
@@ -93,7 +93,7 @@ protected boolean testForBlocking() {
 
 	int diag2Result_opponenet = 0;
 	int diag2Result_player = 0;
-	for (int row = 0; row < 3; row++) {
+	for ( row = 0; row < 3; row++) {
 		if (board.getTheBoard()[row][2- row] == opponent.mark)
 			diag2Result_opponenet++;
 		else if (board.getTheBoard()[row][2- row] == mark)

@@ -8,18 +8,18 @@ public class SmartPlayer extends BlockingPlayer{
 
 	@Override
 	protected void makeMove() {
-		if(testForWinning()==false) {
-			if(testForBlocking()==false) {
+		if(testForWinning(0,0)==false) {
+			if(testForBlocking(0,0)==false) {
 				helper();
 			}
 		}
 	}
-	public boolean testForWinning() {
+	protected boolean testForWinning(int row, int col) {
 		// check in the row direction
-		for (int row = 0; row < 3; row++) {
+		for (row = 0; row < 3; row++) {
 			int row_result_opponent = 0;
 			int row_result_player = 0;
-			for (int col = 0; col < 3; col++) {
+			for ( col = 0; col < 3; col++) {
 				if (board.getTheBoard()[row][col] == opponent.mark)
 					row_result_opponent++;
 				else if (board.getTheBoard()[row][col] == mark) {
@@ -40,10 +40,10 @@ public class SmartPlayer extends BlockingPlayer{
 		}
 
 		// check in the column direction
-		for (int col = 0; col < 3; col++) {
+		for ( col = 0; col < 3; col++) {
 			int col_result_opponenet = 0;
 			int col_result_player = 0;
-			for (int row = 0; row < 3; row++) {
+			for (row = 0; row < 3; row++) {
 				if (board.getTheBoard()[row][col] == opponent.mark)
 					col_result_opponenet++;
 				else if (board.getTheBoard()[row][col] == mark)
@@ -65,7 +65,7 @@ public class SmartPlayer extends BlockingPlayer{
 
 		int diag1Result_opponenet = 0;
 		int diag1Result_player = 0;
-		for (int row = 0; row < 3; row++) {
+		for ( row = 0; row < 3; row++) {
 			if (board.getTheBoard()[row][row] == opponent.mark)
 				diag1Result_opponenet++;
 			else if (board.getTheBoard()[row][row] ==mark)
@@ -84,7 +84,7 @@ public class SmartPlayer extends BlockingPlayer{
 
 		int diag2Result_opponenet = 0;
 		int diag2Result_player = 0;
-		for (int row = 0; row < 3; row++) {
+		for (row = 0; row < 3; row++) {
 			if (board.getTheBoard()[row][2- row] == opponent.mark)
 				diag2Result_opponenet++;
 			else if (board.getTheBoard()[row][2- row] == mark)
